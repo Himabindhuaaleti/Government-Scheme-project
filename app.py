@@ -20,7 +20,7 @@ def detect_language(text):
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("AIzaSyCHsgns_onI94luMVu_GUT-oi8QdqLIPew")
+api_key = os.getenv("")
 genai.configure(api_key=api_key)
 
 # Streamlit page setup
