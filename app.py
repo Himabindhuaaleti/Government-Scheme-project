@@ -6,26 +6,17 @@ from langdetect import detect
 
 # Language detection helper
 def detect_language(text):
-    try:
-        lang = detect(text)
-        if lang == 'hi':
-            return 'Hindi'
-        elif lang == 'en':
-            return 'English'
-        else:
-            return 'Hinglish'
-    except:
-        return 'Hinglish'
+    return 'English'
 
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("")
+api_key = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=api_key)
 
 # Streamlit page setup
 st.set_page_config(
-    page_title="YojanaSaathi - Government Schemes Assistant",
+    page_title="Government Schemes Assistant",
     page_icon="🇮🇳",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -312,7 +303,7 @@ context = load_scheme_documents()
 
 # Gemini response function
 def get_gemini_response(user_query, context):
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.5-flash")
     
     # Detect language of the query
     user_lang = detect_language(user_query)
