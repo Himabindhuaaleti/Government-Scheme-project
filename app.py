@@ -336,7 +336,7 @@ if "chat_history" not in st.session_state:
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-title">
-        <h3>🇮🇳 YojanaSaathi</h3>
+        <h3> Govt Schemes Bot </h3>
         <p>Government Schemes Assistant</p>
     </div>
     """, unsafe_allow_html=True)
@@ -344,7 +344,6 @@ with st.sidebar:
     st.markdown("""
     <div class="tips-card">
         <h4 style="color: #128c7e; font-family: 'Inter', sans-serif; margin-bottom: 1rem; font-size: 1rem;">💡 Quick Tips</h4>
-        <div class="tip-item">• You can ask in Hindi, English, or Hinglish</div>
         <div class="tip-item">• Be specific about your situation (age, income, location)</div>
         <div class="tip-item">• Ask about eligibility, benefits, or application process</div>
     </div>
@@ -353,9 +352,10 @@ with st.sidebar:
     st.markdown("""
     <div class="tips-card">
         <h4 style="color: #128c7e; font-family: 'Inter', sans-serif; margin-bottom: 1rem; font-size: 1rem;">❓ Example Questions</h4>
-        <div class="tip-item">Papa 65 ke ho gaye hain, pension milegi kya?</div>
+        <div class="tip-item">Age of my father is 65, will he get pension?</div>
         <div class="tip-item">What are the benefits of PM-KISAN?</div>
-        <div class="tip-item">Ayushman Bharat ke liye kaise apply karu?</div>
+        <div class="tip-item">How to apply for Ayushman Bharat?</div>
+        <div class="tip-item"><b>Pro tip </b>Once try asking in different language!</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -366,15 +366,15 @@ with col2:
     # Header
     st.markdown("""
     <div class="header-container">
-        <h1 class="header-title">🇮🇳 YojanaSaathi</h1>
-        <p class="header-subtitle">आपका AI साथी Government Schemes के लिए</p>
+        <h1 class="header-title">Bot</h1>
+        <p class="header-subtitle">Your AI assistance for Government Schemes!</p>
     </div>
     """, unsafe_allow_html=True)
     
     # Status card
     st.markdown("""
     <div class="status-card">
-        <p class="status-text">✅ Assistant तैयार है! अब पूछिए कुछ भी about government schemes</p>
+        <p class="status-text">✅ Assistant is now ready! Ask anything about government schemes</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -383,26 +383,26 @@ with col2:
         for q, a in st.session_state.chat_history:
             st.markdown(f"""
             <div class="user-message">
-                <strong>🧑 आपका सवाल:</strong><br>{q}
+                <strong>🧑 :</strong><br>{q}
             </div>
             """, unsafe_allow_html=True)
             
             st.markdown(f"""
             <div class="assistant-message">
-                <strong>🤖 YojanaSaathi का जवाब:</strong><br>{a}
+                <strong>🤖 :</strong><br>{a}
             </div>
             """, unsafe_allow_html=True)
     else:
         st.markdown("""
         <div class="welcome-message">
-            <h3 style="color: #128c7e; margin-bottom: 1rem;">👋 नमस्ते! मैं YojanaSaathi हूं</h3>
-            <p style="margin: 0;">Government schemes के बारे में कुछ भी पूछिए। मैं Hindi, English, और Hinglish में जवाब दे सकता हूं।</p>
+            <h3 style="color: #128c7e; margin-bottom: 1rem;">👋 नमस्ते! I'm a Bot</h3>
+            <p style="margin: 0;">Ask me anything about Government schemes</p>
         </div>
         """, unsafe_allow_html=True)
 
 # Enhanced Chat input area
 st.markdown('<div class="input-area">', unsafe_allow_html=True)
-query = st.chat_input("🗣️ पूछिए कुछ भी (जैसे: 'Papa 65 के हो गये हैं, pension मिलेगी क्या?')")
+query = st.chat_input("🗣️ - Ask")
 st.markdown('</div>', unsafe_allow_html=True)
 
 if query:
@@ -412,18 +412,18 @@ if query:
     # Show user message
     st.markdown(f"""
     <div class="user-message">
-        <strong>🧑 आपका सवाल:</strong><br>{query}
+        <strong>🧑 :</strong><br>{query}
     </div>
     """, unsafe_allow_html=True)
     
     # Show thinking spinner
-    with st.spinner("🔍 सोच रहे हैं... कृपया प्रतीक्षा करें"):
+    with st.spinner("🔍 Thinking! Please wait"):
         response = get_gemini_response(query, context)
     
     # Show assistant response
     st.markdown(f"""
     <div class="assistant-message">
-        <strong>🤖 YojanaSaathi का जवाब:</strong><br>{response}
+        <strong>🤖 :</strong><br>{response}
     </div>
     """, unsafe_allow_html=True)
     
